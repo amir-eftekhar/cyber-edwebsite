@@ -83,7 +83,7 @@ export const Footer: FC = () => {
                   href="mailto:cyberedteam@gmail.com"
                   className="text-muted-foreground hover:text-foreground"
                 >
-                  cpfa.contact@gmail.com
+                  cyberedteam@gmail.com
                 </a>
               </li>
               <Link href="/contact"></Link>

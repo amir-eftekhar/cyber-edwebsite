@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Icon } from '@iconify/react'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from '@/components/ui/sheet'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { cn } from '@/lib/utils'
 
@@ -33,9 +33,10 @@ const socialLinks: SocialLink[] = [
   { name: 'LinkedIn', url: 'https://linkedin.com/company/cyber-ed', icon: <Icon icon="ri:linkedin-line" className="h-5 w-5" /> },
 ]
 
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 export const Navbar: FC = () => {
+  const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
   return (
@@ -57,9 +58,9 @@ export const Navbar: FC = () => {
                 key={route.path}
                 href={route.path}
                 className={cn(
-                  'flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-blue-500/10',
+                  'flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-blue-500/10',
                   pathname === route.path 
-                    ? 'bg-blue-500/15 text-blue-600 dark:text-blue-400 shadow-sm' 
+                    ? 'bg-gradient-to-r from-purple-500/15 to-blue-500/15 text-purple-600 dark:text-purple-400 shadow-sm' 
                     : 'text-foreground/60 hover:text-foreground'
                 )}
               >
@@ -76,7 +77,7 @@ export const Navbar: FC = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg hover:bg-blue-500/10 text-foreground/60 hover:text-foreground transition-all duration-300"
+                className="p-2 rounded-lg hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-blue-500/10 text-foreground/60 hover:text-purple-600 transition-all duration-300"
               >
                 {social.icon}
               </a>
@@ -89,23 +90,34 @@ export const Navbar: FC = () => {
           {/* Mobile Navigation */}
           <div className="flex items-center space-x-2 md:hidden">
             <ThemeToggle />
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-xl h-9 w-9 hover:bg-blue-500/10">
+                <Button variant="ghost" size="icon" className="rounded-xl h-9 w-9 hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-blue-500/10">
                   <Icon icon="ph:list-bold" className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="top" className="w-full h-[80vh] pt-16 pattern-topography pattern-blue-500 pattern-bg-white pattern-opacity-5 pattern-size-6">
+              <SheetContent side="top" className="w-full h-[80vh] pt-16 bg-white dark:bg-background pattern-topography pattern-blue-500 pattern-bg-white pattern-opacity-5 pattern-size-6">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="absolute right-4 top-4 rounded-xl h-10 w-10 hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-blue-500/10 hover:text-purple-600"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Icon icon="ph:x-bold" className="h-6 w-6" />
+                </Button>
+
+                <SheetTitle className="text-center text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">Menu</SheetTitle>
                 <div className="flex flex-col items-center space-y-4">
                   {routes.map((route) => (
                     <Link
                       key={route.path}
                       href={route.path}
+                      onClick={() => setIsOpen(false)}
                       className={cn(
                         "w-full max-w-xs rounded-xl px-8 py-4 text-center text-base font-medium transition-all duration-300 flex items-center justify-center gap-3",
                         pathname === route.path 
-                          ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 shadow-sm" 
-                          : "text-foreground/60 hover:text-foreground hover:bg-blue-500/10"
+                          ? "bg-purple-500/15 text-purple-600 dark:text-purple-400 shadow-sm" 
+                          : "text-foreground/60 hover:text-foreground hover:bg-purple-500/10"
                       )}
                     >
                       {route.icon}
@@ -120,7 +132,7 @@ export const Navbar: FC = () => {
                           href={social.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3 rounded-xl hover:bg-blue-500/10 text-foreground/60 hover:text-foreground transition-all duration-300"
+                          className="p-3 rounded-xl hover:bg-purple-500/10 text-foreground/60 hover:text-purple-600 transition-all duration-300"
                         >
                           {social.icon}
                         </a>
