@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.grid-pattern {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgb(var(--foreground) / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--foreground) / 0.1) 1px, transparent 1px);
+}
+
+.dots-pattern {
+  background-image: radial-gradient(rgb(var(--foreground) / 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@layer base {
+  :root {
+    --background: 258 90% 98%;
+    --foreground: 258 50% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 258 50% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 258 50% 10%;
+    --primary: 258 90% 66%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 258 30% 96%;
+    --muted-foreground: 258 50% 45%;
+    --accent: 326 100% 74%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 258 30% 90%;
+    --input: 258 30% 90%;
+    --ring: 258 90% 66%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 258 50% 5%;
+    --foreground: 258 20% 90%;
+    --card: 258 50% 5%;
+    --card-foreground: 258 20% 90%;
+    --popover: 258 50% 5%;
+    --popover-foreground: 258 20% 90%;
+    --primary: 258 90% 66%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 258 30% 15%;
+    --muted-foreground: 258 40% 70%;
+    --accent: 326 100% 74%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 258 30% 20%;
+    --input: 258 30% 20%;
+    --ring: 258 90% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at top center, hsl(var(--primary)/0.15), transparent 40%),
+      radial-gradient(circle at bottom left, hsl(var(--secondary)/0.15), transparent 40%),
+      radial-gradient(circle at bottom right, hsl(var(--accent)/0.15), transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-[1400px];
+  }
+  
+  .section-padding {
+    @apply py-12 sm:py-16 md:py-20;
+  }
+  
+  .hero-section {
+    @apply relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center justify-center;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Cool Patterns */
+  .pattern-grid {
+    background-image: linear-gradient(hsla(var(--primary), 0.1) 1px, transparent 1px),
+      linear-gradient(to right, hsla(var(--primary), 0.1) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(hsla(var(--primary), 0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .pattern-waves {
+    background: 
+      linear-gradient(45deg, hsla(var(--secondary), 0.1) 12%, transparent 0, transparent 88%, hsla(var(--secondary), 0.1) 0),
+      linear-gradient(135deg, transparent 37%, hsla(var(--primary), 0.1) 0, hsla(var(--primary), 0.1) 63%, transparent 0),
+      linear-gradient(45deg, transparent 37%, hsla(var(--secondary), 0.1) 0, hsla(var(--secondary), 0.1) 63%, transparent 0);
+    background-size: 25px 25px;
+  }
+
+  .pattern-circuit {
+    background-image: 
+      linear-gradient(hsla(var(--primary), 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(var(--primary), 0.1) 1px, transparent 1px),
+      linear-gradient(hsla(var(--accent), 0.1) 0.5px, transparent 0.5px),
+      linear-gradient(90deg, hsla(var(--accent), 0.1) 0.5px, transparent 0.5px);
+    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+    background-position: -1px -1px, -1px -1px, -0.5px -0.5px, -0.5px -0.5px;
+  }
+
+  .pattern-topography {
+    background-image: 
+      linear-gradient(45deg, hsla(var(--primary), 0.1) 25%, transparent 25%),
+      linear-gradient(-45deg, hsla(var(--primary), 0.1) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, hsla(var(--primary), 0.1) 75%),
+      linear-gradient(-45deg, transparent 75%, hsla(var(--primary), 0.1) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+
+  .pattern-hexagons {
+    background-color: transparent;
+    background-image: 
+      linear-gradient(30deg, hsla(var(--primary), 0.1) 12%, transparent 12.5%, transparent 87%, hsla(var(--primary), 0.1) 87.5%, hsla(var(--primary), 0.1)),
+      linear-gradient(150deg, hsla(var(--primary), 0.1) 12%, transparent 12.5%, transparent 87%, hsla(var(--primary), 0.1) 87.5%, hsla(var(--primary), 0.1)),
+      linear-gradient(30deg, hsla(var(--primary), 0.1) 12%, transparent 12.5%, transparent 87%, hsla(var(--primary), 0.1) 87.5%, hsla(var(--primary), 0.1)),
+      linear-gradient(150deg, hsla(var(--primary), 0.1) 12%, transparent 12.5%, transparent 87%, hsla(var(--primary), 0.1) 87.5%, hsla(var(--primary), 0.1)),
+      linear-gradient(60deg, hsla(var(--secondary), 0.1) 25%, transparent 25.5%, transparent 75%, hsla(var(--secondary), 0.1) 75%, hsla(var(--secondary), 0.1)),
+      linear-gradient(60deg, hsla(var(--secondary), 0.1) 25%, transparent 25.5%, transparent 75%, hsla(var(--secondary), 0.1) 75%, hsla(var(--secondary), 0.1));
+    background-size: 40px 70px;
+    background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+  }
+
+  /* Animation Classes */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_15px_rgba(var(--primary),0.5)];
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .spin-slow {
+    animation: spin 20s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(-5%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s linear infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient-xy {
+    background-size: 400% 400%;
+    animation: gradient-xy 15s ease infinite;
+  }
+
+  @keyframes gradient-xy {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.5s ease-out;
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
