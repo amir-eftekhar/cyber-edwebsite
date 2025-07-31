@@ -1,6 +1,7 @@
 "use client"
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Icon } from '@iconify/react'
 import { Button } from '@/components/ui/button'
@@ -29,7 +30,7 @@ const routes: Route[] = [
 ]
 
 const socialLinks: SocialLink[] = [
-  { name: 'Instagram', url: 'https://instagram.com/cyber.ed', icon: <Icon icon="ri:instagram-line" className="h-5 w-5" /> },
+  { name: 'Instagram', url: 'https://instagram.com/cyber.edclub', icon: <Icon icon="ri:instagram-line" className="h-5 w-5" /> },
   { name: 'LinkedIn', url: 'https://linkedin.com/company/cyber-ed', icon: <Icon icon="ri:linkedin-line" className="h-5 w-5" /> },
 ]
 
@@ -45,8 +46,14 @@ export const Navbar: FC = () => {
       <header className="mx-auto max-w-7xl relative">
         <nav className="relative flex items-center justify-between rounded-2xl border-2 border-blue-500/20 bg-background/80 px-6 py-4 shadow-xl backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 hover:border-blue-500/30 transition-all duration-300">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-xl shadow-lg group-hover:scale-110 transition-all duration-300 animate-gradient-xy">
-              <Icon icon="ph:shield-check-bold" className="w-6 h-6 text-white animate-pulse" />
+            <div className="relative w-10 h-10 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+              <Image 
+                src="/logo.png" 
+                alt="Cyber-Ed Logo" 
+                width={40} 
+                height={40} 
+                className="object-contain rounded-full"
+              />
             </div>
             <span className="font-bold text-lg sm:text-xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Cyber-Ed</span>
           </Link>

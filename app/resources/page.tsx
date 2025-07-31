@@ -16,6 +16,7 @@ interface Resource {
   link: string;
   category: string;
   icon: React.ReactNode;
+  isVideo?: boolean;
 }
 
 const categories: Category[] = [
@@ -29,45 +30,60 @@ const categories: Category[] = [
 const resources: Resource[] = [
   {
     title: "Browser Safety Extension",
-    description: "Our free browser extension that helps protect you from phishing sites, malicious downloads, and unsafe web content.",
+    description: "Our free browser extension helps protect you from phishing sites, malicious downloads, and unsafe web content. It provides real-time alerts and blocks dangerous sites automatically.",
     link: "#extension",
     category: "tools",
     icon: <Shield className="w-5 h-5" />
   },
   {
     title: "Phishing Prevention Guide",
-    description: "Learn how to identify and avoid phishing scams with our comprehensive guide.",
+    description: "Our comprehensive guide teaches you how to identify suspicious emails, verify sender authenticity, recognize common phishing tactics, and protect your personal information from scammers.",
     link: "#phishing-guide",
     category: "guides",
     icon: <Book className="w-5 h-5" />
   },
   {
     title: "Digital Footprint Guide",
-    description: "Understanding and managing your online presence and digital footprint.",
+    description: "Learn how your online activities create a permanent record and how to manage your digital presence. Includes strategies for controlling what information is visible to others and protecting your reputation.",
     link: "#digital-footprint",
     category: "guides",
     icon: <FileText className="w-5 h-5" />
   },
   {
     title: "Email Safety Tips",
-    description: "Best practices for keeping your email communications secure and private.",
+    description: "Discover essential practices for secure email communications, including how to recognize suspicious messages, safely handle attachments, use encryption, and prevent account compromise.",
     category: "guides",
     icon: <FileText className="w-5 h-5" />,
     link: "#email-safety"
   },
   {
     title: "Password Security Guide",
-    description: "Learn how to create and manage strong passwords to protect your accounts.",
+    description: "Master the art of creating strong, unique passwords and learn about password managers, two-factor authentication, and other techniques to keep your accounts secure from unauthorized access.",
     link: "#password-security",
     category: "guides",
     icon: <FileText className="w-5 h-5" />
   },
   {
     title: "Online Privacy Guide",
-    description: "Comprehensive guide to protecting your privacy while browsing the internet.",
+    description: "Take control of your online privacy with our detailed guide covering browser settings, VPNs, cookie management, social media privacy, and how to minimize data collection by websites and apps.",
     link: "#privacy-guide",
     category: "guides",
     icon: <FileText className="w-5 h-5" />
+  },
+  {
+    title: "Cyber-Ed Presentation Video",
+    description: "Watch our informative presentation explaining common cybersecurity threats and practical protection strategies for students and seniors. Perfect introduction to our educational approach.",
+    link: "/presentation_video.mov",
+    category: "videos",
+    icon: <Video className="w-5 h-5" />,
+    isVideo: true
+  },
+  {
+    title: "Workshop Presentations",
+    description: "Access slides and materials from our recent workshops on phishing prevention, password security, and safe social media practices. Great resources for educators and community leaders.",
+    link: "#workshop-materials",
+    category: "videos",
+    icon: <Video className="w-5 h-5" />
   }
 ];
 
@@ -137,7 +153,7 @@ export default function ResourcesPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Learn more
+                    {resource.isVideo ? 'Watch Video' : 'Learn more'}
                     <motion.span
                       animate={{ x: [0, 5, 0] }}
                       transition={{ duration: 1, repeat: Infinity }}

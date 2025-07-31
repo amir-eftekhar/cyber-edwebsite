@@ -12,27 +12,27 @@ interface Program {
 
 const programs: Program[] = [
   {
-    title: "Middle School Program",
+    title: "Phishing Scams Workshop",
     description: "Empowering students with essential digital safety skills through interactive workshops.",
     icon: <GraduationCap className="w-6 h-6" />,
     features: [
-      "Cyberbullying prevention strategies",
-      "Safe social media practices",
-      "Password security workshops",
-      "Online privacy protection",
-      "Digital footprint awareness"
+      "Understanding Phishing Scams – Personalized workshop on how to identify and address phishing attempts",
+      "Interactive Activities – Engaging quizzes and games to model real phishing scenarios",
+      "Email Management – Guidance on organizing inboxes, recognizing suspicious emails, and improving security",
+      "Preventing Identity Theft & Fraud – Practical tips on avoiding scams and safeguarding personal information",
+      "Real-Life Examples – Hands-on analysis of actual phishing attempts and step-by-step actions to block and report suspicious emails"
     ]
   },
   {
-    title: "Senior Digital Safety",
+    title: "Email Security & Management Workshop",
     description: "Helping seniors navigate the digital world with confidence and security.",
     icon: <Heart className="w-6 h-6" />,
     features: [
-      "Email safety and scam prevention",
-      "Online banking security",
-      "Password management",
-      "Social media privacy",
-      "Tech support scam awareness"
+      "Creating & Managing Email Accounts – Step-by-step guidance on setting up accounts and navigating different email clients",
+      "Maximizing Email Use – Live demonstrations on key features, inbox organization, and filtering spam",
+      "Strengthening Security – Teaching strong password practices, two-factor authentication, and other security measures",
+      "Identifying & Reporting Scams – Recognizing malicious emails, phishing attempts, and how to block/report them",
+      "Preventing Fraud & Identity Theft – Practical tips to stay safe online and avoid email-related scams"
     ]
   },
   {

@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const INSTAGRAM_URL = 'https://instagram.com/cyber.ed';
+const INSTAGRAM_URL = 'https://instagram.com/cyber.edclub';
 
 import { FC } from 'react'
 
@@ -14,11 +14,11 @@ export const Footer: FC = () => {
           <div>
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image
-                src="/CyberEdLogo.webp"
+                src="/logo.png"
                 alt="Cyber-Ed Logo"
                 width={24}
                 height={24}
-                className="h-6 w-6 rounded-full"
+                className="h-6 w-6 rounded-full object-contain"
               />
               <span className="font-bold gradient-text">Cyber-Ed</span>
             </Link>
@@ -41,18 +41,10 @@ export const Footer: FC = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/solutions"
+                  href="/"
                   className="text-muted-foreground hover:text-foreground"
                 >
-                  Solutions
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/vision"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Vision
+                  Home
                 </Link>
               </li>
               <li>
@@ -65,10 +57,26 @@ export const Footer: FC = () => {
               </li>
               <li>
                 <Link
-                  href="/support"
+                  href="/officers"
                   className="text-muted-foreground hover:text-foreground"
                 >
-                  Support
+                  Officers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/programs"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Programs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resources"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Resources
                 </Link>
               </li>
             </ul>
@@ -86,7 +94,7 @@ export const Footer: FC = () => {
                   cyberedteam@gmail.com
                 </a>
               </li>
-              <Link href="/contact"></Link>
+              <Link href="/contact" className="text-muted-foreground hover:text-foreground">Contact Us</Link>
             </ul>
           </div>
 

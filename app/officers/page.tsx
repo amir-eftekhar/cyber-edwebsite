@@ -15,6 +15,10 @@ interface Officer extends OfficerCardProps {}
 
 
 const OfficerCard: FC<OfficerCardProps> = ({ name, position, description, imageUrl }) => {
+  // Special handling for Iniya's photo to ensure it fits properly in the circle
+  const imageClass = name === "Iniya Rajanikanth" 
+    ? "object-cover object-center object-[0_-15px]"
+    : "object-cover object-center";
   return (
     <div className="flex flex-col items-center space-y-4 p-6 rounded-2xl border bg-card/80 text-card-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 pattern-dots pattern-blue-500 pattern-bg-white pattern-opacity-10 pattern-size-4">
       <div className="relative h-48 w-48 overflow-hidden rounded-full">
@@ -22,7 +26,7 @@ const OfficerCard: FC<OfficerCardProps> = ({ name, position, description, imageU
           src={imageUrl}
           alt={name}
           fill
-          className="object-cover"
+          className={imageClass}
         />
       </div>
       <div className="text-center space-y-3">
@@ -51,25 +55,31 @@ export default function OfficersPage() {
       name: "Iniya Rajanikanth",
       position: "Co-Founder",
       description: "I helped start Cyber-Ed after realizing how many people, both students and seniors, fall victim to online scams simply because they lack the knowledge to protect themselves. Through our workshops, we empower middle schoolers to recognize cyber threats and help seniors avoid digital fraud.",
-      imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500&auto=format&fit=crop"
+      imageUrl: "/iniya.png"
     },
     {
       name: "Kavya Srivastava",
       position: "Co-Founder",
       description: "I started Cyber-Ed to help bridge the gap in cybersecurity awareness, especially for middle schoolers and senior citizens. Through interactive workshops and educational programs, Cyber-Ed empowers people with the tools they need to navigate the internet safely.",
-      imageUrl: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=500&auto=format&fit=crop"
+      imageUrl: "/kavya.png"
     },
     {
       name: "Amir Eftekhar",
       position: "Chief Technology Officer",
       description: "As CTO at Cyber-Ed, I lead our technical initiatives including the development of our browser extension and cybersecurity tools. With a background in software engineering and cybersecurity, I'm passionate about creating innovative solutions that make digital safety accessible to everyone. My focus is on developing user-friendly tools that provide real-time protection against online threats.",
-      imageUrl: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=500&auto=format&fit=crop"
+      imageUrl: "/amir.png"
+    },
+    {
+      name: "Shikhar Jaswal",
+      position: "Chief Operating Officer",
+      description: "As the Chief Operating Officer at Cyber-Ed, I oversee our day-to-day operations and strategic initiatives. I focus on creating engaging, accessible learning experiences that translate complex cybersecurity concepts into practical knowledge. My goal is to ensure our workshops empower participants with the skills they need to navigate digital spaces safely and confidently.",
+      imageUrl: "/shikar.png"
     },
     {
       name: "Niklesh Survajala",
-      position: "Outreach Officer",
-      description: "As the Outreach Officer at Cyber-Ed, I'm dedicated to expanding our community impact and building meaningful partnerships. I work closely with schools, senior centers, and local organizations to bring our cybersecurity education programs to those who need them most. Through strategic outreach initiatives, we're making digital safety education more accessible to everyone in our community.",
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop"
+      position: "Co-Chief Technology Officer",
+      description: "As the Co-Chief Technology Officer at Cyber-Ed, I collaborate on our technical strategy and implementation of cybersecurity tools. I work closely with schools, senior centers, and local organizations to bring our cybersecurity education programs to those who need them most. Through strategic technical initiatives, we're making digital safety education more accessible to everyone in our community.",
+      imageUrl: "/nik.webp"
     }
   ]
 
